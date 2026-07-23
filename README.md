@@ -112,7 +112,7 @@ On Windows, if you're in PowerShell and the exe is in your current folder, prefi
 
 This makes it easy to wire into a script:
 ```bash
-malscan.exe suspicious_file.bin rules
+malscan.exe samples/test_suspicious.bin rules
 if %errorlevel%==2 echo File flagged!
 ```
 
@@ -122,12 +122,12 @@ if %errorlevel%==2 echo File flagged!
 
 These were run on this project and confirmed working end to end.
 
-**Clean file (`clean_test.txt`) — expect no matches:**
+**Clean file (`samples/clean_test.txt`) — expect no matches:**
 ```
 ================================================
   malscan - Rule-Based File Scanner
 ================================================
-[*] Target   : clean_test.txt
+[*] Target   : samples/clean_test.txt
 [*] File size: 74 bytes
 [*] Rules dir: rules
 [*] Rules    : 61 loaded
@@ -138,12 +138,12 @@ These were run on this project and confirmed working end to end.
 ```
 Exit code: `0`
 
-**EICAR test string (`eicar_test.txt`) — the industry-standard, harmless AV test file:**
+**EICAR test string (`samples/eicar_test.txt`) — the industry-standard, harmless AV test file:**
 ```
 ================================================
   malscan - Rule-Based File Scanner
 ================================================
-[*] Target   : eicar_test.txt
+[*] Target   : samples/eicar_test.txt
 [*] File size: 67 bytes
 [*] Rules dir: rules
 [*] Rules    : 61 loaded
@@ -155,12 +155,12 @@ Exit code: `0`
 ```
 Exit code: `2`
 
-**Synthetic multi-signature file (`test_suspicious.bin`) — embeds a PE header, a UPX packer marker, a CPUID hex pattern, a ransomware shadow-copy-deletion string, and a PHP web shell string:**
+**Synthetic multi-signature file (`samples/test_suspicious.bin`) — embeds a PE header, a UPX packer marker, a CPUID hex pattern, a ransomware shadow-copy-deletion string, and a PHP web shell string:**
 ```
 ================================================
   malscan - Rule-Based File Scanner
 ================================================
-[*] Target   : test_suspicious.bin
+[*] Target   : samples/test_suspicious.bin
 [*] File size: 142 bytes
 [*] Rules dir: rules
 [*] Rules    : 61 loaded
