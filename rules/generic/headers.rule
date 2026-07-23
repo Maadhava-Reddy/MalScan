@@ -1,0 +1,16 @@
+# Generic file-header signatures
+
+[rule]
+name = MZ_Executable_Header
+description = DOS/PE executable magic bytes at file start
+hex = 4D 5A
+
+[rule]
+name = ZIP_Archive_Header
+description = ZIP/OOXML/JAR local file header magic
+hex = 50 4B 03 04
+
+[rule]
+name = Suspicious_PowerShell_Download
+description = PowerShell download-and-execute string indicator
+string = DownloadString

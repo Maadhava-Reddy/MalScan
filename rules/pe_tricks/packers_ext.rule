@@ -1,0 +1,11 @@
+# Additional Packers
+
+[rule]
+name = PE_PECompact_Packed
+description = PECompact packer signature
+string = PEC2
+
+[rule]
+name = PE_ASPack_Packed_Alt
+description = ASPack alternative signature
+hex = 61 73 70 61 63 6B

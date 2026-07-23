@@ -1,0 +1,21 @@
+# Advanced Network / DNS / DGA Indicators
+
+[rule]
+name = Network_DNS_TxtRecord_C2
+description = Resolves DNS TXT records (often used by malware for stealthy C2 communication)
+string = DnsQuery_A
+
+[rule]
+name = Network_DGA_Pattern
+description = Checks for common Domain Generation Algorithm API usage
+string = DnsGetCacheDataTable
+
+[rule]
+name = Network_Suspicious_Dynamic_DNS
+description = Usage of dynamic DNS providers common in malware C2 (e.g. duckdns, no-ip)
+string = .duckdns.org
+
+[rule]
+name = Network_Suspicious_Dynamic_DNS_NoIP
+description = Usage of No-IP dynamic DNS
+string = .ddns.net

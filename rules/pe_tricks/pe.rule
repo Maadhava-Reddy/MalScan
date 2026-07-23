@@ -1,0 +1,46 @@
+# Windows PE (Portable Executable) obfuscation and packing indicators
+
+[rule]
+name = PE_UPX_Packed
+description = UPX packer signature commonly used to compress malware
+string = UPX0
+
+[rule]
+name = PE_UPX_Packed_Alt
+description = UPX packer signature (UPX1 section)
+string = UPX1
+
+[rule]
+name = PE_ASPack_Packed
+description = ASPack packer signature
+string = .aspack
+
+[rule]
+name = PE_Themida_Packed
+description = Themida obfuscator section name
+string = .themida
+
+[rule]
+name = PE_Suspicious_Section_Name
+description = Suspicious non-standard PE section name (often used in malware)
+string = .ndata
+
+[rule]
+name = PE_Suspicious_Import_IsDebuggerPresent
+description = Imports IsDebuggerPresent to evade analysis
+string = IsDebuggerPresent
+
+[rule]
+name = PE_Suspicious_Import_VirtualAlloc
+description = Imports VirtualAlloc (often used for process injection or unpacking)
+string = VirtualAlloc
+
+[rule]
+name = PE_Suspicious_Import_CreateRemoteThread
+description = Imports CreateRemoteThread (commonly used for process injection)
+string = CreateRemoteThread
+
+[rule]
+name = PE_Suspicious_Import_LoadLibrary
+description = Imports LoadLibraryA/W (often used for dynamic API resolution to hide intent)
+string = LoadLibraryA

@@ -1,0 +1,59 @@
+# Malware Process Injection & Memory Manipulation
+[rule]
+name = Malware_Process_Injection_VirtualAllocEx
+description = Allocates memory in a remote process (classic process injection)
+string = VirtualAllocEx
+
+[rule]
+name = Malware_Process_Injection_WriteProcessMemory
+description = Writes data into a remote process
+string = WriteProcessMemory
+
+[rule]
+name = Malware_Process_Injection_CreateRemoteThread
+description = Executes code in a remote process
+string = CreateRemoteThread
+
+# Registry Persistence
+[rule]
+name = Malware_Persistence_RunKey
+description = Adds an executable to the Windows Run registry key for persistence
+string = Software\Microsoft\Windows\CurrentVersion\Run
+
+[rule]
+name = Malware_Persistence_Winlogon
+description = Hijacks Winlogon registry keys for persistence
+string = Software\Microsoft\Windows NT\CurrentVersion\Winlogon
+
+# Credential Theft / Keylogging
+[rule]
+name = Malware_Keylogger_GetAsyncKeyState
+description = Checks keyboard state asynchronously (common in keyloggers)
+string = GetAsyncKeyState
+
+[rule]
+name = Malware_Keylogger_SetWindowsHookEx
+description = Installs a system-wide hook to intercept keystrokes
+string = SetWindowsHookEx
+
+# Rootkit & Driver Patterns
+[rule]
+name = Malware_Rootkit_DeviceIoControl
+description = Communicates directly with device drivers (common in rootkits)
+string = DeviceIoControl
+
+[rule]
+name = Malware_Rootkit_NtQuerySystemInformation
+description = System API often hooked by rootkits to hide processes
+string = NtQuerySystemInformation
+
+# Worm Propagation
+[rule]
+name = Malware_Worm_Autorun_Inf
+description = Creates or modifies autorun.inf for USB worm spreading
+string = autorun.inf
+
+[rule]
+name = Malware_Worm_Drive_Enumeration
+description = Enumerates logical drives to find USBs or network shares for spreading
+string = GetLogicalDrives

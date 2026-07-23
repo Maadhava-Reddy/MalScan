@@ -1,0 +1,31 @@
+# Anti-Debugging, Obfuscation, and VM Evasion
+
+[rule]
+name = Evasion_AntiDebug_IsDebuggerPresent
+description = Standard Windows API used to check for an active debugger
+string = IsDebuggerPresent
+
+[rule]
+name = Evasion_AntiDebug_CheckRemoteDebuggerPresent
+description = API to detect if process is being debugged remotely
+string = CheckRemoteDebuggerPresent
+
+[rule]
+name = Evasion_AntiDebug_OutputDebugString
+description = Can be used to exploit debugger vulnerabilities or check attachment
+string = OutputDebugStringA
+
+[rule]
+name = Evasion_VMDetection_CPUID
+description = Uses CPUID instruction to detect hypervisor (VMware/VirtualBox) presence
+hex = 0F A2
+
+[rule]
+name = Obfuscation_Base64_String
+description = Standard Base64 decoding function reference
+string = CryptStringToBinaryA
+
+[rule]
+name = Obfuscation_XOR_Loop
+description = Typical XOR decoding loop byte pattern (often used to hide payloads)
+hex = 31 C0 8B 0C

@@ -1,0 +1,41 @@
+# Web shell and backdoor indicators
+
+[rule]
+name = Webshell_PHP_Eval_Base64
+description = PHP eval(base64_decode()) pattern used in web shells
+string = eval(base64_decode(
+
+[rule]
+name = Webshell_PHP_System_Command
+description = PHP system() call used for OS command execution in shells
+string = <?php system(
+
+[rule]
+name = Webshell_PHP_Passthru
+description = PHP passthru() used for command execution in web shells
+string = passthru($_
+
+[rule]
+name = Webshell_PHP_Preg_Replace_Exec
+description = PHP preg_replace /e modifier used for code execution (classic shell)
+string = preg_replace('/.*/e'
+
+[rule]
+name = Webshell_ASP_Execute
+description = ASP/ASPX shell using Execute() for dynamic code execution
+string = Execute(Request(
+
+[rule]
+name = Webshell_JSP_Runtime_Exec
+description = JSP web shell using Runtime.exec() for OS command execution
+string = Runtime.getRuntime().exec(
+
+[rule]
+name = Webshell_China_Chopper
+description = China Chopper web shell signature
+string = eval($_POST[z0]
+
+[rule]
+name = Webshell_Generic_POST_Exec
+description = Generic pattern: execute OS command from POST parameter
+string = shell_exec($_POST

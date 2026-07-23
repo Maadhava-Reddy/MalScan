@@ -1,0 +1,6 @@
+# Linux ELF binary detection
+
+[rule]
+name = ELF_Binary_Header
+description = ELF executable magic bytes at file start
+hex = 7F 45 4C 46

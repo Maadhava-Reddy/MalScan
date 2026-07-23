@@ -1,0 +1,36 @@
+# Network and Command-and-Control (C2) indicators
+
+[rule]
+name = Network_Suspicious_UserAgent
+description = Suspicious User-Agent string often used by malware (e.g., bitsadmin, curl, wget in unexpected contexts)
+string = BITS/
+
+[rule]
+name = Network_Suspicious_UserAgent_PowerShell
+description = Windows PowerShell User-Agent often used in malicious downloads
+string = WindowsPowerShell/
+
+[rule]
+name = Network_Suspicious_Domain_Pastebin
+description = Pastebin URL often used to host malicious payloads or scripts
+string = pastebin.com/raw/
+
+[rule]
+name = Network_Suspicious_Domain_Ngrok
+description = Ngrok tunnel domain, often used by attackers to expose local C2 servers
+string = .ngrok.io
+
+[rule]
+name = Network_Suspicious_IP_Pattern
+description = hardcoded localhost IP, sometimes used in simple reverse shells or bind shells
+string = 127.0.0.1
+
+[rule]
+name = Network_Suspicious_Protocol_IRC
+description = IRC protocol string, historically used by botnets for C2
+string = PRIVMSG
+
+[rule]
+name = Network_Reverse_Shell_Bash
+description = Classic bash reverse shell one-liner payload pattern
+string = /bin/bash -i >& /dev/tcp/

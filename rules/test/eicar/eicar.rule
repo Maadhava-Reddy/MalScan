@@ -1,0 +1,6 @@
+# Harmless industry-standard AV test signature
+
+[rule]
+name = EICAR_Test_File
+description = Standard EICAR antivirus test string (not real malware)
+string = EICAR-STANDARD-ANTIVIRUS-TEST-FILE

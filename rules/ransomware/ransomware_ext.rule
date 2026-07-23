@@ -1,0 +1,11 @@
+# Extended Ransomware File Extensions
+
+[rule]
+name = Ransomware_Extension_LOCKED
+description = File extension commonly appended by ransomware
+string = .LOCKED
+
+[rule]
+name = Ransomware_Extension_ENCRYPTED
+description = File extension commonly appended by ransomware
+string = .ENCRYPTED

@@ -1,0 +1,36 @@
+# Ransomware behavioral indicators
+
+[rule]
+name = Ransomware_Shadow_Copy_Delete
+description = Attempts to delete Windows Volume Shadow Copies (common ransomware behavior)
+string = vssadmin delete shadows
+
+[rule]
+name = Ransomware_Shadow_Copy_Delete_WMI
+description = WMI-based shadow copy deletion used by ransomware
+string = Win32_ShadowCopy
+
+[rule]
+name = Ransomware_Bcdedit_Disable_Recovery
+description = Disables Windows recovery options (seen in Ryuk, LockBit)
+string = bcdedit /set {default} recoveryenabled No
+
+[rule]
+name = Ransomware_Wbadmin_Delete_Backup
+description = Deletes Windows backups to prevent recovery
+string = wbadmin delete catalog
+
+[rule]
+name = Ransomware_Readme_Marker
+description = Common ransomware ransom note filename pattern
+string = README_TO_DECRYPT
+
+[rule]
+name = Ransomware_LockBit_Marker
+description = LockBit ransomware string marker
+string = LockBit
+
+[rule]
+name = Ransomware_WannaCry_Kill_Switch
+description = WannaCry ransomware known domain kill-switch reference
+string = iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea
